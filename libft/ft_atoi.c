@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:24:55 by ndruon            #+#    #+#             */
-/*   Updated: 2024/11/06 17:08:47 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/11/06 17:36:47 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,3 @@ int	ft_atoi(char *str)
 		number = number * 10 + str[i++] - 48;
 	return (number * nb);
 }
-/*
-int	main(void)
-{
-	char	str[] = " /+*";
-
-	printf("notre chiffre est : %d\n", ft_atoi(str));
-}
-*/

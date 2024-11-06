@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 12:20:22 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/23 12:20:25 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/20 17:34:25 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/22 12:00:48 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strcpy(char	*dest, char	*src)
+int	ft_strlen(const char	*str)
 {
 	int	len;
 
 	len = 0;
-	while (src[len] != '\0')
-	{
-		dest[len] = src[len];
+	while (str[len])
 		len++;
-	}
-	dest[len] = '\0';
-	return (dest);
+	return (len);
 }

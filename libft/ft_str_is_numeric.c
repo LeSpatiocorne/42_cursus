@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/21 13:48:01 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 11:32:40 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/23 12:22:11 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/23 12:22:26 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_str_is_numeric(char	*str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	len = 0;
+	while (str[len])
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		if (!(str[len] > 47 && str[len] < 58))
+			return (0);
+		len++;
 	}
-	return (0);
+	return (1);
 }

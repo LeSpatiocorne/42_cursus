@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:58:01 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/25 13:53:07 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/23 12:21:26 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/23 12:21:35 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_str_is_alpha(char	*str)
 {
-	size_t	dest_len;
-	size_t	i;
+	int	len;
 
-	dest_len = ft_strlen(dest);
-	i = 0;
-	while (i < nb && src[i] != '\0')
+	len = 0;
+	while (str[len])
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		if (!((str[len] > 64 && str[len] < 91)
+				|| (str[len] > 96 && str[len] < 123)))
+			return (0);
+		len++;
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	return (1);
 }

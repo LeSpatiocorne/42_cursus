@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 17:34:25 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/22 12:00:48 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/22 17:26:20 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/25 13:55:33 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-int	ft_strlen(char	*str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	len;
+	unsigned int	i;
+	unsigned int	i2;
 
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	if (ft_strlen(to_find) == 0)
+		return (str);
+	i = 0;
+	while (str[i])
+	{
+		i2 = 0;
+		while (to_find[i2])
+		{
+			if (str[i + i2] == to_find[i2])
+			{
+				if (to_find[i2 + 1] == '\0')
+					return (&str[i]);
+			}
+			else
+				break ;
+			i2++;
+		}
+		i++;
+	}
+	return (NULL);
 }

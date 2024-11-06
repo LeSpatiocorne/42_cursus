@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 17:26:20 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/25 13:55:33 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/22 16:58:01 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/25 13:52:38 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strcat(char *dest, char *src)
 {
-	unsigned int	i;
-	unsigned int	i2;
+	size_t	dest_len;
+	size_t	i;
 
-	if (ft_strlen(to_find) == 0)
-		return (str);
+	dest_len = ft_strlen(dest);
 	i = 0;
-	while (str[i])
+	while (src[i] != '\0')
 	{
-		i2 = 0;
-		while (to_find[i2])
-		{
-			if (str[i + i2] == to_find[i2])
-			{
-				if (to_find[i2 + 1] == '\0')
-					return (&str[i]);
-			}
-			else
-				break ;
-			i2++;
-		}
+		dest[dest_len + i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dest[dest_len + i] = '\0';
+	return (dest);
 }

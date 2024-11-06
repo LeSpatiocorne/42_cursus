@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:58:01 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/25 13:52:38 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/23 12:20:49 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/23 12:20:55 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	size_t	dest_len;
-	size_t	i;
+	unsigned int	len;
 
-	dest_len = ft_strlen(dest);
-	i = 0;
-	while (src[i] != '\0')
+	len = 0;
+	while (src[len] != '\0' && len < n)
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		dest[len] = src[len];
+		len++;
 	}
-	dest[dest_len + i] = '\0';
+	while (len < n)
+	{
+		dest[len] = '\0';
+		len++;
+	}
 	return (dest);
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: root <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 12:22:11 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/23 12:22:26 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/21 13:48:01 by root              #+#    #+#             */
+/*   Updated: 2024/07/22 11:34:11 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-int	ft_str_is_numeric(char	*str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	len;
+	unsigned int	i;
 
-	len = 0;
-	while (str[len])
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		if (!(str[len] > 47 && str[len] < 58))
-			return (0);
-		len++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	return (1);
+	return (0);
 }

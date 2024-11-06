@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 18:24:10 by nidruon           #+#    #+#             */
-/*   Updated: 2024/10/05 18:42:28 by nidruon          ###   ########.fr       */
+/*   Created: 2024/07/24 17:24:55 by ndruon            #+#    #+#             */
+/*   Updated: 2024/11/06 17:08:47 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_atoi(char *str)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dst_len;
-	size_t	src_len;
+	int	i;
+	int	nb;
+	int	number;
 
 	i = 0;
-	j = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	while (dst[i] && i < dstsize)
+	number = 0;
+	nb = 1;
+	while (!(str[i] > 32 && str[i] < 127))
 		i++;
-	while (src[j] && i + j < dstsize - 1)
-		dst[i + j] = src[j];
-	dst[i + j] = '\0';
-	return (dst_len + src_len);
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			nb = -nb;
+		i++;
+	}
+	while (str[i] > 47 && str[i] < 58)
+		number = number * 10 + str[i++] - 48;
+	return (number * nb);
 }
+/*
+int	main(void)
+{
+	char	str[] = " /+*";
+
+	printf("notre chiffre est : %d\n", ft_atoi(str));
+}
+*/

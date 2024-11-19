@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:49:35 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/06 17:10:57 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/11/15 15:05:35 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*d;
-	char	*s;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	d = (char *)dst;
-	s = (char *)src;
-	while (n--)
-		*d++ = *s++;
+	if (!dst && !src)
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
 	return (dst);
 }

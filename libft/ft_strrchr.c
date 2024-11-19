@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:18:50 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/06 17:12:26 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/11/19 15:21:11 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (s[i] != '\0')
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
 		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+			return ((char *)s + i);
+		i--;
 	}
 	return (NULL);
 }

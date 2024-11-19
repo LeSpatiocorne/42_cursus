@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndruon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/23 12:21:26 by ndruon            #+#    #+#             */
-/*   Updated: 2024/07/23 12:21:35 by ndruon           ###   ########.fr       */
+/*   Created: 2024/07/23 12:22:11 by ndruon            #+#    #+#             */
+/*   Updated: 2024/07/23 12:22:26 by ndruon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_str_is_alpha(char	*str)
+int	ft_isdigit(int c)
 {
-	int	len;
-
-	len = 0;
-	while (str[len])
-	{
-		if (!((str[len] > 64 && str[len] < 91)
-				|| (str[len] > 96 && str[len] < 123)))
-			return (0);
-		len++;
-	}
+	if (!(c > 47 && c < 58))
+		return (0);
 	return (1);
 }

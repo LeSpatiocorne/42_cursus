@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:52:04 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/25 13:07:33 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/11/25 13:28:03 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 
 int		ft_print_char(va_list args);
 int		ft_print_hex(va_list args);

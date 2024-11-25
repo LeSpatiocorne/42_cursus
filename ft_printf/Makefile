@@ -13,19 +13,19 @@ SRCS = 	ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	make -C ../libft    # Compile libft first
-	cp ../libft/libft.a $(NAME)
+	make -C ./libft    # Compile libft first
+	cp ./libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
 
 all: $(NAME)
 
 clean:
 	rm -f $(OBJS)
-	make clean -C ../libft
+	make clean -C ./libft
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C ../libft
+	make fclean -C ./libft
 
 re: fclean all
 

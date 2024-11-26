@@ -13,7 +13,7 @@ SRCS = 	ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	make -C ./libft    # Compile libft first
+	make -C ./libft
 	cp ./libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:19:26 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/15 15:00:26 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/11/26 13:58:00 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,6 @@ int		ft_isprint(int c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+void	ft_putnbr_base_fd(unsigned long nb, char *base, int fd);
+
 #endif

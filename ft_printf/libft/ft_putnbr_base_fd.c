@@ -6,19 +6,22 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:59:19 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/25 13:28:15 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/11/25 14:00:08 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putnbr_base_fd(unsigned int nb, char *base, int fd)
+void	ft_putnbr_base_fd(unsigned long nb, char *base, int fd)
 {
-	int	len;
+	unsigned int	len;
 
-	len = ft_strlen(base);
+	len = (unsigned int)ft_strlen(base);
 	if (nb >= len)
+	{
 		ft_putnbr_base_fd(nb / len, base, fd);
-	write(fd, &base[nb % len], 1);
-	return (1);
+		ft_putnbr_base_fd(nb % len, base, fd);
+	}
+	else
+		ft_putchar_fd(base[nb], fd);
 }

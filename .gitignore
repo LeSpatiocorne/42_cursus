@@ -1,3 +1,4 @@
 .vscode/
 *.lua~
 /lua/
+/gnl_tester/

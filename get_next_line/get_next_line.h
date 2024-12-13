@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:21:55 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/26 15:37:31 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/12/12 16:52:29 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);

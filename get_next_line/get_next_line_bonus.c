@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:22:03 by nidruon           #+#    #+#             */
-/*   Updated: 2024/12/12 16:48:52 by nidruon          ###   ########.fr       */
+/*   Updated: 2024/12/15 15:30:31 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,3 +124,27 @@ char	*get_next_line(int fd)
 	buffer[fd] = update_buffer(buffer[fd]);
 	return (line);
 }
+/*
+#include <fcntl.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	int		fd;
+	char	*line;
+
+	fd = open("test", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error opening file\n");
+		return (1);
+	}
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	close(fd);
+	return (0);
+}
+*/

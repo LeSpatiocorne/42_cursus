@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 14:21:55 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/08 09:07:15 by nidruon          ###   ########.fr       */
+/*   Created: 2025/01/24 13:01:00 by nidruon           #+#    #+#             */
+/*   Updated: 2025/01/24 13:57:24 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef MINITALK_H
+# define MINITALK_H
 
+# include <signal.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "ft_printf/ft_printf.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t count, size_t size);
-char	*get_next_line(int fd);
+typedef struct s_data
+{
+	unsigned char	c;
+	int				bit_count;
+}	t_data;
 
 #endif

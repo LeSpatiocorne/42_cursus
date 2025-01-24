@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 14:21:55 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/08 09:07:15 by nidruon          ###   ########.fr       */
+/*   Created: 2024/11/25 12:59:19 by nidruon           #+#    #+#             */
+/*   Updated: 2024/11/25 14:00:08 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+void	ft_putnbr_base_fd(unsigned long nb, char *base, int fd)
+{
+	unsigned int	len;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t count, size_t size);
-char	*get_next_line(int fd);
-
-#endif
+	len = (unsigned int)ft_strlen(base);
+	if (nb >= len)
+	{
+		ft_putnbr_base_fd(nb / len, base, fd);
+		ft_putnbr_base_fd(nb % len, base, fd);
+	}
+	else
+		ft_putchar_fd(base[nb], fd);
+}

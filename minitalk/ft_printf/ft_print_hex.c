@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 14:21:55 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/08 09:07:15 by nidruon          ###   ########.fr       */
+/*   Created: 2024/11/25 11:40:44 by nidruon           #+#    #+#             */
+/*   Updated: 2024/11/26 13:44:02 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+int	ft_print_hex(va_list *args, char format)
+{
+	unsigned int	nb;
+	int				len;
+	char			*base;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t count, size_t size);
-char	*get_next_line(int fd);
-
-#endif
+	nb = va_arg(*args, unsigned int);
+	if (format == 'X')
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	len = 0;
+	ft_putnbr_base_fd(nb, base, 1);
+	if (nb == 0)
+		return (1);
+	while (nb != 0)
+	{
+		nb /= 16;
+		len++;
+	}
+	return (len);
+}

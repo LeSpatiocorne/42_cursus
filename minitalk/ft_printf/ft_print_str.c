@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 14:21:55 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/08 09:07:15 by nidruon          ###   ########.fr       */
+/*   Created: 2024/11/25 11:42:23 by nidruon           #+#    #+#             */
+/*   Updated: 2024/11/26 13:42:23 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+int	ft_print_str(va_list *args)
+{
+	char	*str;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t count, size_t size);
-char	*get_next_line(int fd);
-
-#endif
+	str = va_arg(*args, char *);
+	if (!str)
+		return (write(1, "(null)", 6));
+	if (str[0] == '\0')
+		return (0);
+	return (write(1, str, ft_strlen(str)));
+}

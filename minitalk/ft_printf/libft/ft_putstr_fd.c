@@ -1,14 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: nidruon <nidruon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:17:21 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/06 07:44:41 by nidruon          ###   ########.fr       */
+/*   Created: 2024/11/14 15:34:53 by nidruon           #+#    #+#             */
+/*   Updated: 2024/11/14 15:34:56 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "libft.h"
 
+void	ft_putstr_fd(char *s, int fd)
+{
+	write(fd, s, ft_strlen(s));
+}

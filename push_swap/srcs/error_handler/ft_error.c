@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 14:21:55 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/08 09:07:15 by nidruon          ###   ########.fr       */
+/*   Created: 2025/01/06 08:01:11 by nidruon           #+#    #+#             */
+/*   Updated: 2025/01/07 11:59:16 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../../includes/push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t count, size_t size);
-char	*get_next_line(int fd);
-
-#endif
+void	ft_error(int error_code)
+{
+	if (error_code == 1)
+		ft_putstr_fd("Error : Some value in the stack is not a number\n", 2);
+	else if (error_code == 2)
+		ft_putstr_fd("Error : The stack is empty\n", 2);
+	else if (error_code == 3)
+		ft_putstr_fd("Error : The stack is not sorted\n", 2);
+	exit(1);
+}

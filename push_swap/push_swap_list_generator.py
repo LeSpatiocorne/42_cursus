@@ -1,8 +1,8 @@
 import random, os
 
-items_100 = list(range(1, 100))
-items_500 = list(range(1, 500))
-items_1000 = list(range(1, 1000))
+items_100 = list(range(0, 100))
+items_500 = list(range(0, 500))
+items_1000 = list(range(0, 1000))
 random.shuffle(items_100)
 random.shuffle(items_500)
 random.shuffle(items_1000)

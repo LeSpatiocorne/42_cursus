@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:17:12 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 17:20:55 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 17:55:11 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (!is_sorted(stack_a))
-		ft_sort_by_selection(stack_a, stack_b);
+		ft_sort_by_chunks(stack_a, stack_b);
 	ft_printf("\nRésultat du tri:\n");
 	print_stack(stack_a, "Stack A");
 	ft_printf("Nombre d'opérations: %d\n", stack_a->operation_count);

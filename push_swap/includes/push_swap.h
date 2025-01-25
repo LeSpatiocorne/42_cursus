@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:07:22 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 17:20:40 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 20:05:07 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ t_stack			*parse_single_string(char *str);
 t_stack			*read_numbers_from_file(char *file);
 void			clean_up(int *numbers, char **split_nums, char *line, int fd);
 void			ft_error(int error_code);
-void			ft_sort_by_selection(t_stack *a, t_stack *b);
+void			ft_sort_by_chunks(t_stack *a, t_stack *b);
+void			normalize_stack(t_stack *stack);
+int				get_chunk_size(int stack_size);
+int				find_next_in_chunk(t_stack *a, int chunk_start, int chunk_end);
+void			sort_array(int *arr, int size);
+void			push_chunk_to_b(t_stack *a, t_stack *b, int c_start, int c_end);
+void			push_back_to_a(t_stack *a, t_stack *b);
+int				find_max_pos(t_stack *b);
 
 #endif

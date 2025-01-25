@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo1.c                                            :+:      :+:    :+:   */
+/*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 09:22:34 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/13 11:22:58 by nidruon          ###   ########.fr       */
+/*   Created: 2025/01/25 16:58:05 by nidruon           #+#    #+#             */
+/*   Updated: 2025/01/25 17:08:02 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	find_min_position(t_stack *stack)
+static int	find_min(t_stack *stack)
 {
 	int	i;
-	int	min;
 	int	min_pos;
+	int	min;
 
 	i = 0;
-	min = stack->numbers[0];
 	min_pos = 0;
+	min = stack->numbers[0];
 	while (i < stack->size)
 	{
 		if (stack->numbers[i] < min)
@@ -33,20 +33,23 @@ int	find_min_position(t_stack *stack)
 	return (min_pos);
 }
 
-void	ft_algo1(t_stack *a, t_stack *b)
+static void	push_min_to_b(t_stack *a, t_stack *b)
 {
 	int	min_pos;
 
-	while (a->size > 0 && !is_sorted(a))
+	min_pos = find_min(a);
+	while (min_pos > 0)
 	{
-		min_pos = find_min_position(a);
-		if (min_pos == 0)
-			push_b(a, b);
-		else if (min_pos <= a->size / 2)
-			rotate_a(a);
-		else
-			reverse_ra(a);
+		rotate_a(a);
+		min_pos--;
 	}
+	push_b(a, b);
+}
+
+void	ft_sort_by_selection(t_stack *a, t_stack *b)
+{
+	while (a->size > 0)
+		push_min_to_b(a, b);
 	while (b->size > 0)
 		push_a(a, b);
 }

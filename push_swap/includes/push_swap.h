@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:07:22 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/16 10:12:32 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 17:20:40 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 # include "../libs/libft/libft.h"
 # include "../libs/ft_printf/ft_printf.h"
 # include "../libs/get_next_line/get_next_line.h"
+# include <string.h>
+# include <stdlib.h>
 
 typedef struct s_stack
 {
 	int	*numbers;
 	int	size;
 	int	capacity;
+	int	operation_count;
 }	t_stack;
 
 void			ft_error(int error_code);
@@ -37,14 +40,15 @@ void			rotate_r(t_stack *a, t_stack *b);
 void			reverse_ra(t_stack *a);
 void			reverse_rb(t_stack *b);
 void			reverse_rr(t_stack *a, t_stack *b);
-void			ft_algo1(t_stack *a, t_stack *b);
 void			ft_free_split(char **split);
 int				ft_atoi(const char *str);
-int				is_sorted(t_stack *stack);
-int				find_min_position(t_stack *stack);
 void			print_stack(t_stack *stack, char *stack_name);
-static t_stack	*init_stack(char **numbers, int count);
-static t_stack	*parse_multiple_args(int argc, char **argv);
-static t_stack	*parse_single_string(char *str);
+t_stack			*init_stack(char **numbers, int count);
+t_stack			*parse_multiple_args(int argc, char **argv);
+t_stack			*parse_single_string(char *str);
+t_stack			*read_numbers_from_file(char *file);
+void			clean_up(int *numbers, char **split_nums, char *line, int fd);
+void			ft_error(int error_code);
+void			ft_sort_by_selection(t_stack *a, t_stack *b);
 
 #endif

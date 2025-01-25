@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_split.c                                    :+:      :+:    :+:   */
+/*   free_misc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 09:03:26 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/08 09:03:57 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 14:59:09 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,16 @@ void	ft_free_split(char **split)
 		i++;
 	}
 	free(split);
-	split = NULL;
+}
+
+void	clean_up(int *numbers, char **split_nums, char *line, int fd)
+{
+	if (numbers)
+		free(numbers);
+	if (split_nums)
+		ft_free_split(split_nums);
+	if (line)
+		free(line);
+	if (fd != -1)
+		close(fd);
 }

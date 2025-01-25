@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:22:03 by nidruon           #+#    #+#             */
-/*   Updated: 2024/12/15 15:30:04 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 16:41:44 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char	*handle_read(int fd, char *buffer, char *temp)
 	int	bytes_read;
 
 	bytes_read = 1;
-	while (bytes_read > 0 && !ft_strchr(buffer, '\n'))
+	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, temp, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -80,10 +80,18 @@ static char	*handle_read(int fd, char *buffer, char *temp)
 			free(buffer);
 			return (NULL);
 		}
+		if (bytes_read == 0)
+			break ;
 		temp[bytes_read] = '\0';
 		buffer = ft_strjoin(buffer, temp);
+		if (!buffer)
+		{
+			free(temp);
+			return (NULL);
+		}
+		if (ft_strchr(buffer, '\n'))
+			break ;
 	}
-	free(temp);
 	return (buffer);
 }
 

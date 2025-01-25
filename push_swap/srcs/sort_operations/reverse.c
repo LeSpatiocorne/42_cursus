@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:25:34 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/07 11:43:03 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 17:18:17 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	reverse_ra(t_stack *a)
 		i--;
 	}
 	a->numbers[0] = temp;
-	ft_printf("rra\n");
+	a->operation_count++;
+	ft_printf("rra ");
 }
 
 void	reverse_rb(t_stack *b)
@@ -45,12 +46,12 @@ void	reverse_rb(t_stack *b)
 		i--;
 	}
 	b->numbers[0] = temp;
-	write(1, "rrb\n", 4);
+	write(1, "rrb ", 4);
 }
 
 void	reverse_rr(t_stack *a, t_stack *b)
 {
 	reverse_ra(a);
 	reverse_rb(b);
-	ft_printf("rrr\n");
+	ft_printf("rrr ");
 }

@@ -6,13 +6,13 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 08:57:35 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/14 09:41:34 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 16:09:03 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static t_stack	*init_stack(char **numbers, int count)
+t_stack	*init_stack(char **numbers, int count)
 {
 	t_stack	*stack;
 
@@ -22,6 +22,8 @@ static t_stack	*init_stack(char **numbers, int count)
 		ft_free_split(numbers);
 		return (NULL);
 	}
+	stack->operation_count = 0;
+	stack->capacity = count;
 	stack->numbers = malloc(sizeof(int) * count);
 	if (!stack->numbers)
 	{
@@ -33,7 +35,7 @@ static t_stack	*init_stack(char **numbers, int count)
 	return (stack);
 }
 
-static t_stack	*parse_single_string(char *str)
+t_stack	*parse_single_string(char *str)
 {
 	t_stack	*stack;
 	char	**numbers;
@@ -48,7 +50,10 @@ static t_stack	*parse_single_string(char *str)
 		count++;
 	stack = init_stack(numbers, count);
 	if (!stack)
+	{
+		ft_free_split(numbers);
 		return (NULL);
+	}
 	i = 0;
 	while (i < count)
 	{
@@ -59,7 +64,7 @@ static t_stack	*parse_single_string(char *str)
 	return (stack);
 }
 
-static t_stack	*parse_multiple_args(int argc, char **argv)
+t_stack	*parse_multiple_args(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		i;
@@ -68,6 +73,8 @@ static t_stack	*parse_multiple_args(int argc, char **argv)
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
+	stack->capacity = argc - 1;
+	stack->operation_count = 0;
 	stack->numbers = malloc(sizeof(int) * (argc - 1));
 	if (!stack->numbers)
 	{

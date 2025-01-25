@@ -9,15 +9,16 @@ PRINTF = ./libs/ft_printf
 GET_NEXT_LINE = ./libs/get_next_line
 LIBFT = ./libs/libft
 SRCS = 	srcs/main.c \
-		srcs/algorithm/algo1.c \
+		srcs/algorithm/ft_sort_by_selection.c \
 		srcs/sort_operations/push.c \
 		srcs/sort_operations/swap.c \
 		srcs/sort_operations/rotate.c \
 		srcs/sort_operations/reverse.c \
 		srcs/misc/ft_stacks.c \
 		srcs/error_handler/ft_error.c \
-		srcs/misc/ft_free_split.c \
-		srcs/misc/parsing.c
+		srcs/misc/parsing.c \
+		srcs/misc/read_numbers_from_file.c \
+		srcs/misc/free_misc.c
 
 OBJS = $(SRCS:.c=.o)
 

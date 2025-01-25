@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:17:12 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 17:55:11 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 20:12:29 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 		ft_error(0);
 	stack_a = parse_input(argc, argv);
 	if (!stack_a)
-		ft_error(2);
+		ft_error(1);
 	stack_b = init_stack_b(stack_a);
 	if (!stack_b)
 	{

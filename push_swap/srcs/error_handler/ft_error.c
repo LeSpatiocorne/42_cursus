@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 08:01:11 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 14:55:42 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 20:12:50 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@ void	ft_error(int error_code)
 	if (error_code == 0)
 		ft_putstr_fd("Error : Incorrect ammount of arguments provided\n", 2);
 	else if (error_code == 1)
-		ft_putstr_fd("Error : Some value in the stack is not a number\n", 2);
-	else if (error_code == 2)
 		ft_putstr_fd("Error : The stack is empty\n", 2);
-	else if (error_code == 3)
-		ft_putstr_fd("Error : The stack is not sorted\n", 2);
 	exit(1);
 }

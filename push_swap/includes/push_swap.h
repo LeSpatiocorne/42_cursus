@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:07:22 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 20:05:07 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/01/25 20:11:58 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ t_stack			*parse_multiple_args(int argc, char **argv);
 t_stack			*parse_single_string(char *str);
 t_stack			*read_numbers_from_file(char *file);
 void			clean_up(int *numbers, char **split_nums, char *line, int fd);
-void			ft_error(int error_code);
 void			ft_sort_by_chunks(t_stack *a, t_stack *b);
 void			normalize_stack(t_stack *stack);
 int				get_chunk_size(int stack_size);

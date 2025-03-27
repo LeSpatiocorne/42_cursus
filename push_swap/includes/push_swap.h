@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:07:22 by nidruon           #+#    #+#             */
-/*   Updated: 2025/03/27 14:31:22 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/27 15:31:33 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void			sort_four(t_stack *a, t_stack *b);
 void			sort_five(t_stack *stack_a, t_stack *stack_b);
 void			turkish_sort(t_stack *stack_a, t_stack *stack_b);
 void			push_back_sorted(t_stack *a, t_stack *b);
-// Utility functions
 int				is_sorted(t_stack *stack);
 int				get_index_in_stack(t_stack *stack, int value);
 int				find_min_position(t_stack *stack);

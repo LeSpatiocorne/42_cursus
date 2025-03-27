@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 08:57:35 by nidruon           #+#    #+#             */
-/*   Updated: 2025/03/25 15:53:32 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/27 15:31:09 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,32 +43,5 @@ t_stack	*parse_single_string(char *str)
 
 t_stack	*parse_multiple_args(int argc, char **argv)
 {
-	t_stack	*stack;
-	int		i;
-
-	i = -1;
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->capacity = argc - 1;
-	stack->numbers = malloc(sizeof(int) * (argc - 1));
-	if (!stack->numbers)
-	{
-		free(stack);
-		return (NULL);
-	}
-	stack->original_numbers = malloc(sizeof(int) * (argc - 1));
-	if (!stack->original_numbers)
-	{
-		free(stack->numbers);
-		free(stack);
-		return (NULL);
-	}
-	stack->size = argc - 1;
-	while (++i < argc - 1)
-	{
-		stack->numbers[i] = ft_atoi(argv[i + 1]);
-		stack->original_numbers[i] = stack->numbers[i];
-	}
-	return (stack);
+	return (init_stack(argv + 1, argc - 1));
 }

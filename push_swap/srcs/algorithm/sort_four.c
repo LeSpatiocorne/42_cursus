@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_misc.c                                        :+:      :+:    :+:   */
+/*   sort_four.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 09:03:26 by nidruon           #+#    #+#             */
-/*   Updated: 2025/02/09 21:25:58 by nidruon          ###   ########.fr       */
+/*   Created: 2025/03/26 15:52:20 by nidruon           #+#    #+#             */
+/*   Updated: 2025/03/26 15:54:10 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_free_split(char **split)
+void	sort_four(t_stack *a, t_stack *b)
 {
-	int	i;
-
-	i = 0;
-	while (split[i])
+	if (a->size == 2)
 	{
-		free(split[i]);
-		i++;
+		if (a->numbers[0] > a->numbers[1])
+			sa(a);
+		return ;
 	}
-	free(split);
+	if (a->size == 3)
+	{
+		sort_three(a);
+		return ;
+	}
+	push_smallest_to_b(a, b);
+	sort_three(a);
+	pa(a, b);
 }

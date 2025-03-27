@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:19:26 by nidruon           #+#    #+#             */
-/*   Updated: 2024/11/26 13:58:00 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/21 16:36:57 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int		ft_isnumber(char *str);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_toupper(int c);

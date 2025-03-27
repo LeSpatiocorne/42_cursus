@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacks.c                                        :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 09:27:49 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 16:52:48 by nidruon          ###   ########.fr       */
+/*   Created: 2025/03/24 23:03:19 by nidruon           #+#    #+#             */
+/*   Updated: 2025/03/26 15:56:19 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	print_stack(t_stack *stack, char *stack_name)
+void	sort_five(t_stack *a, t_stack *b)
 {
-	int	i;
-
-	i = 0;
-	ft_printf("\n%s contient %d nombres:\n", stack_name, stack->size);
-	while (i < stack->size)
+	if (a->size == 2)
 	{
-		ft_printf("%d ", stack->numbers[i]);
-		i++;
+		if (a->numbers[0] > a->numbers[1])
+			sa(a);
+		return ;
 	}
-	ft_printf("\n");
+	while (a->size > 3)
+		push_smallest_to_b(a, b);
+	sort_three(a);
+	while (b->size > 0)
+		pa(a, b);
 }

@@ -6,44 +6,42 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 09:58:52 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 17:48:38 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/25 15:22:17 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap_a(t_stack *a)
+static void	swap_stack(t_stack *stack)
 {
 	int	temp;
+	int	temp_orig;
 
-	if (a->size < 2)
+	if (!stack || stack->size < 2)
 		return ;
-	temp = a->numbers[0];
-	a->numbers[0] = a->numbers[1];
-	a->numbers[1] = temp;
-	a->operation_count++;
-	ft_printf("sa ");
+	temp = stack->numbers[0];
+	temp_orig = stack->original_numbers[0];
+	stack->numbers[0] = stack->numbers[1];
+	stack->original_numbers[0] = stack->original_numbers[1];
+	stack->numbers[1] = temp;
+	stack->original_numbers[1] = temp_orig;
 }
 
-void	swap_b(t_stack *b)
+void	sa(t_stack *a)
 {
-	int	temp;
-
-	if (b->size < 2)
-		return ;
-	temp = b->numbers[0];
-	b->numbers[0] = b->numbers[1];
-	b->numbers[1] = temp;
-	b->operation_count++;
-	ft_printf("sb ");
+	swap_stack(a);
+	ft_printf("sa\n");
 }
 
-void	swap_s(t_stack *a, t_stack *b)
+void	sb(t_stack *b)
 {
-	swap_a(a);
-	swap_b(b);
-	a->operation_count--;
-	b->operation_count--;
-	a->operation_count++;
-	ft_printf("ss ");
+	swap_stack(b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	swap_stack(a);
+	swap_stack(b);
+	ft_printf("ss\n");
 }

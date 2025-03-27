@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:07:22 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 20:11:58 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/27 14:31:22 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,43 @@
 typedef struct s_stack
 {
 	int	*numbers;
+	int	*original_numbers;
 	int	size;
 	int	capacity;
-	int	operation_count;
 }	t_stack;
 
 void			ft_error(int error_code);
-t_stack			*read_numbers_from_file(char *file);
-void			push_a(t_stack *a, t_stack *b);
-void			push_b(t_stack *a, t_stack *b);
-void			swap_a(t_stack *a);
-void			swap_b(t_stack *b);
-void			swap_s(t_stack *a, t_stack *b);
-void			rotate_a(t_stack *a);
-void			rotate_b(t_stack *b);
-void			rotate_r(t_stack *a, t_stack *b);
-void			reverse_ra(t_stack *a);
-void			reverse_rb(t_stack *b);
-void			reverse_rr(t_stack *a, t_stack *b);
+int				ft_duplicate_arg(int ac, char **av);
+int				ft_duplicate_inarg(char *arg);
+t_stack			*init_stack(char **numbers, int count);
+t_stack			*init_stack_b(t_stack *stack_a);
 void			ft_free_split(char **split);
 int				ft_atoi(const char *str);
-void			print_stack(t_stack *stack, char *stack_name);
-t_stack			*init_stack(char **numbers, int count);
 t_stack			*parse_multiple_args(int argc, char **argv);
 t_stack			*parse_single_string(char *str);
-t_stack			*read_numbers_from_file(char *file);
-void			clean_up(int *numbers, char **split_nums, char *line, int fd);
-void			ft_sort_by_chunks(t_stack *a, t_stack *b);
-void			normalize_stack(t_stack *stack);
-int				get_chunk_size(int stack_size);
-int				find_next_in_chunk(t_stack *a, int chunk_start, int chunk_end);
-void			sort_array(int *arr, int size);
-void			push_chunk_to_b(t_stack *a, t_stack *b, int c_start, int c_end);
-void			push_back_to_a(t_stack *a, t_stack *b);
-int				find_max_pos(t_stack *b);
+void			free_stacks(t_stack *stack_a, t_stack *stack_b);
+void			pa(t_stack *a, t_stack *b);
+void			pb(t_stack *a, t_stack *b);
+void			sa(t_stack *a);
+void			sb(t_stack *b);
+void			ss(t_stack *a, t_stack *b);
+void			ra(t_stack *a);
+void			rb(t_stack *b);
+void			rr(t_stack *a, t_stack *b);
+void			rra(t_stack *a);
+void			rrb(t_stack *b);
+void			rrr(t_stack *a, t_stack *b);
+void			sort_three(t_stack *stack);
+void			sort_four(t_stack *a, t_stack *b);
+void			sort_five(t_stack *stack_a, t_stack *stack_b);
+void			turkish_sort(t_stack *stack_a, t_stack *stack_b);
+void			push_back_sorted(t_stack *a, t_stack *b);
+// Utility functions
+int				is_sorted(t_stack *stack);
+int				get_index_in_stack(t_stack *stack, int value);
+int				find_min_position(t_stack *stack);
+int				find_max_position(t_stack *stack);
+int				find_closest_in_chunk(t_stack *stack, int min_val, int max_val);
+void			push_smallest_to_b(t_stack *a, t_stack *b);
 
 #endif

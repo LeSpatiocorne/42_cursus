@@ -6,56 +6,47 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:25:13 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 17:48:41 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/25 15:20:32 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate_a(t_stack *a)
+static void	rotate_stack(t_stack *s)
 {
 	int	temp;
+	int	temp_orig;
 	int	i;
 
-	if (a->size < 2)
+	if (!s || s->size < 2)
 		return ;
-	temp = a->numbers[0];
-	i = 0;
-	while (i < a->size - 1)
+	temp = s->numbers[0];
+	temp_orig = s->original_numbers[0];
+	i = -1;
+	while (++i < s->size - 1)
 	{
-		a->numbers[i] = a->numbers[i + 1];
-		i++;
+		s->numbers[i] = s->numbers[i + 1];
+		s->original_numbers[i] = s->original_numbers[i + 1];
 	}
-	a->numbers[a->size - 1] = temp;
-	a->operation_count++;
-	ft_printf("ra ");
+	s->numbers[s->size - 1] = temp;
+	s->original_numbers[s->size - 1] = temp_orig;
 }
 
-void	rotate_b(t_stack *b)
+void	ra(t_stack *a)
 {
-	int	temp;
-	int	i;
-
-	if (b->size < 2)
-		return ;
-	temp = b->numbers[0];
-	i = 0;
-	while (i < b->size - 1)
-	{
-		b->numbers[i] = b->numbers[i + 1];
-		i++;
-	}
-	b->numbers[b->size - 1] = temp;
-	b->operation_count++;
-	ft_printf("rb ");
+	rotate_stack(a);
+	ft_printf("ra\n");
 }
 
-void	rotate_r(t_stack *a, t_stack *b)
+void	rb(t_stack *b)
 {
-	rotate_a(a);
-	rotate_b(b);
-	a->operation_count--;
-	b->operation_count--;
-	a->operation_count++;
-	ft_printf("rr ");
+	rotate_stack(b);
+	ft_printf("rb\n");
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	rotate_stack(a);
+	rotate_stack(b);
+	ft_printf("rr\n");
 }

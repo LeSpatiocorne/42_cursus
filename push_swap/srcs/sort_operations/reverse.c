@@ -6,56 +6,48 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:25:34 by nidruon           #+#    #+#             */
-/*   Updated: 2025/01/25 17:48:44 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/03/25 15:20:57 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	reverse_ra(t_stack *a)
+static void	reverse_rotate_stack(t_stack *s)
 {
 	int	temp;
+	int	temp_orig;
 	int	i;
 
-	if (a->size < 2)
+	if (!s || s->size < 2)
 		return ;
-	temp = a->numbers[a->size - 1];
-	i = a->size - 1;
+	temp = s->numbers[s->size - 1];
+	temp_orig = s->original_numbers[s->size - 1];
+	i = s->size - 1;
 	while (i > 0)
 	{
-		a->numbers[i] = a->numbers[i - 1];
+		s->numbers[i] = s->numbers[i - 1];
+		s->original_numbers[i] = s->original_numbers[i - 1];
 		i--;
 	}
-	a->numbers[0] = temp;
-	a->operation_count++;
-	ft_printf("rra ");
+	s->numbers[0] = temp;
+	s->original_numbers[0] = temp_orig;
 }
 
-void	reverse_rb(t_stack *b)
+void	rra(t_stack *a)
 {
-	int	temp;
-	int	i;
-
-	if (b->size < 2)
-		return ;
-	temp = b->numbers[b->size - 1];
-	i = b->size - 1;
-	while (i > 0)
-	{
-		b->numbers[i] = b->numbers[i - 1];
-		i--;
-	}
-	b->numbers[0] = temp;
-	b->operation_count++;
-	ft_printf("rrb ");
+	reverse_rotate_stack(a);
+	ft_printf("rra\n");
 }
 
-void	reverse_rr(t_stack *a, t_stack *b)
+void	rrb(t_stack *b)
 {
-	reverse_ra(a);
-	reverse_rb(b);
-	a->operation_count--;
-	b->operation_count--;
-	a->operation_count++;
-	ft_printf("rrr ");
+	reverse_rotate_stack(b);
+	ft_printf("rrb\n");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	reverse_rotate_stack(a);
+	reverse_rotate_stack(b);
+	ft_printf("rrr\n");
 }

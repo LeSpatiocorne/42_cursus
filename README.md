@@ -5,3 +5,11 @@ Quand c'est possible, et quand j'en ai le temps j'essaierai de joindre de temps 
 Prennez en compte que 42 est avant tout une école où l'on se forme mais aussi ou des compétences très diverses se croisent.
 Tous les répo que vous trouvez sur internet ne sont pas parfait, le miens y compris, il est monnaie courrante de ne pas se sanctionner mutuellement une fois la moulinette hors de course pour ne pas prendre trop de retard dans notre avancée.
 Quand c'est possible et pas trop chronophage je tâcherais de repush des version corrigés de de mes exercices. En attendant vous trouverez dans leur readme, progressivement des commentaires et notes du projet.
+
+### Finished Project
+
+<img alt="libft no bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/libfte.png"></br><img alt="Get Next Line with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png"><img alt="ft_printf no bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png"><img alt="Born2BeRoot with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png"></br><img alt="push_swap" src="https://github.com/ayogun/42-project-badges/blob/main/badges/push_swape.png"><img alt="minitalk" src="https://github.com/ayogun/42-project-badges/blob/main/badges/minitalkm.png">
+
+### On going projects
+
+<img alt="so_long" src="https://github.com/ayogun/42-project-badges/blob/main/badges/so_longe.png">

@@ -1,2 +1,7 @@
 # 42_cursus
-Projets réalisés pour mon cursus de stud à 42
+Ici vous trouverez le repository principal de mes projets du tronc commun réalisés à 42 en tant qu'étudiant.
+Chaque dossier est présenté comme un sous-module et redirige directement vers le repo individuel des projets.
+Quand c'est possible, et quand j'en ai le temps j'essaierai de joindre de temps à autre des explication des dits projets.
+Prennez en compte que 42 est avant tout une école où l'on se forme mais aussi ou des compétences très diverses se croisent.
+Tous les répo que vous trouvez sur internet ne sont pas parfait, le miens y compris, il est monnaie courrante de ne pas se sanctionner mutuellement une fois la moulinette hors de course pour ne pas prendre trop de retard dans notre avancée.
+Quand c'est possible et pas trop chronophage je tâcherais de repush des version corrigés de de mes exercices. En attendant vous trouverez dans leur readme, progressivement des commentaires et notes du projet.

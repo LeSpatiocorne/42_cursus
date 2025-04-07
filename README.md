@@ -13,3 +13,6 @@ Quand c'est possible et pas trop chronophage je tâcherais de repush des version
 ### On going projects
 
 <img alt="so_long" src="https://github.com/ayogun/42-project-badges/blob/main/badges/so_longe.png">
+
+# Credits
+projects images from 42-project-badges find them [here](https://github.com/ayogun/42-project-badges)

@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:52:43 by nidruon           #+#    #+#             */
-/*   Updated: 2025/04/03 22:43:47 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/02/05 15:25:25 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ int	init_game(t_game *game)
 	game->tile_size = 32;
 	game->mlx = mlx_init();
 	if (!game->mlx)
-	{
-		ft_printf("Erreur: échec de l'initialisation de MLX\n");
 		return (0);
-	}
 	game->win = mlx_new_window(game->mlx, game->map_width * game->tile_size,
 			(game->map_height * game->tile_size) + 40, "Maze O");
 	if (!game->win)
 	{
-		ft_printf("Erreur: échec de la création de la fenêtre\n");
 		free(game->mlx);
 		return (0);
 	}
@@ -40,35 +36,18 @@ int	init_game(t_game *game)
 			"./assets/background.xpm", &img_width, &img_height);
 	if (!game->wall_img || !game->background_img)
 	{
-		ft_printf("Erreur: échec du chargement des images de base\n");
 		mlx_destroy_window(game->mlx, game->win);
 		free(game->mlx);
 		return (0);
 	}
 	if (!init_player(game))
 	{
-		ft_printf("Erreur: échec de l'initialisation du joueur\n");
 		mlx_destroy_window(game->mlx, game->win);
 		free(game->mlx);
 		return (0);
 	}
-	if (!init_coin(game))
+	if (!init_coin(game) || !init_exit(game))
 	{
-		ft_printf("Erreur: échec de l'initialisation des pièces\n");
-		mlx_destroy_window(game->mlx, game->win);
-		free(game->mlx);
-		return (0);
-	}
-	if (!init_exit(game))
-	{
-		ft_printf("Erreur: échec de l'initialisation de la sortie\n");
-		mlx_destroy_window(game->mlx, game->win);
-		free(game->mlx);
-		return (0);
-	}
-	if (!init_enemy(game))
-	{
-		ft_printf("Erreur: échec de l'initialisation des ennemis\n");
 		mlx_destroy_window(game->mlx, game->win);
 		free(game->mlx);
 		return (0);
@@ -96,37 +75,13 @@ int	handle_keypress(int keysym, t_game *game)
 		new_x--;
 	else if (keysym == XK_d || keysym == XK_Right)
 		new_x++;
-	
-	// First move the player
-	if (move_player(game, new_x, new_y))
-	{
-		// Then move the enemy
-		if (move_enemy(game))
-		{
-			if (game->enemy_x == game->player_x && game->enemy_y == game->player_y)
-			{
-				mlx_string_put(game->mlx, game->win,
-					(game->map_width * game->tile_size) / 2 - 50,
-					(game->map_height * game->tile_size) / 2,
-					0xFF0000, "GAME OVER!");
-				mlx_do_sync(game->mlx);
-				usleep(1000000);
-				mlx_destroy_window(game->mlx, game->win);
-				exit(0);
-			}
-			draw_map(game);
-		}
-	}
-	return (0);
+	return (move_player(game, new_x, new_y));
 }
 
 void	main_window(t_game *game)
 {
 	if (!init_game(game))
-	{
-		ft_printf("Erreur: échec de l'initialisation du jeu\n");
-		exit(1);
-	}
+		return ;
 	draw_map(game);
 	mlx_key_hook(game->win, handle_keypress, game);
 	mlx_loop(game->mlx);

@@ -6,7 +6,7 @@
 /*   By: nidruon <nidruon@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:46:58 by nidruon           #+#    #+#             */
-/*   Updated: 2025/03/07 14:39:38 by nidruon          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:40:14 by nidruon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ typedef struct s_game
 	int				window_height;
 	int				player_x;
 	int				player_y;
-	int				enemy_x;
-	int				enemy_y;
 	int				moves;
 	int				collected;
 	void			*wall_img;
@@ -71,8 +69,6 @@ typedef struct s_game
 	void			*player_img;
 	void			*coin_img;
 	void			*exit_img;
-	void			*enemy_img;
-	int				enemy_count;
 }	t_game;
 
 
@@ -88,11 +84,5 @@ int		init_coin(t_game *game);
 void	draw_coin(t_game *game, int x, int y);
 int		init_exit(t_game *game);
 void	draw_exit(t_game *game, int x, int y);
-int		init_enemy(t_game *game);
-void	draw_enemy(t_game *game, int x, int y);
-int		move_enemy(t_game *game);
-int		is_valid_move(t_game *game, int x, int y);
-void	add_move(int moves[4][2], int *count, int dx, int dy);
-void	check_moves(t_game *game, int moves[4][2], int *count);
 
 #endif

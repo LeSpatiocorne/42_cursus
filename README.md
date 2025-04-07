@@ -8,7 +8,7 @@ Quand c'est possible et pas trop chronophage je tâcherais de repush des version
 
 ### Finished Project
 
-<img alt="libft no bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/libfte.png"></br><img alt="Get Next Line with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png"><img alt="ft_printf no bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png"><img alt="Born2BeRoot with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png"></br><img alt="push_swap" src="https://github.com/ayogun/42-project-badges/blob/main/badges/push_swape.png"><img alt="minitalk" src="https://github.com/ayogun/42-project-badges/blob/main/badges/minitalkm.png">
+[<img alt="libft no bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/libfte.png">](https://github.com/LeSpatiocorne/ft_libft/tree/99660e306ebf2df2ea3f3df1a55c283cdb43eb84)</br>[<img alt="Get Next Line with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png">](https://github.com/LeSpatiocorne/get_next_line/tree/408ea6d8aa7198cac12683f416df7dd3d7a7a6ac)[<img alt="ft_printf no bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png">](https://github.com/LeSpatiocorne/ft_printf/tree/dd2277ee14c20dffcb14606d7dc3b0e9eacd4ea9)<img alt="Born2BeRoot with bonus" src="https://github.com/ayogun/42-project-badges/blob/main/badges/born2berootm.png"></br><img alt="push_swap" src="https://github.com/ayogun/42-project-badges/blob/main/badges/push_swape.png"><img alt="minitalk" src="https://github.com/ayogun/42-project-badges/blob/main/badges/minitalkm.png">
 
 ### On going projects
 
